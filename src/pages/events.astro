@@ -1,0 +1,309 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import eventsHeroImage from "../assets/images/events/events-hero-1268x757.jpg";
+import comicSigning from "../assets/images/events/comic-signing-200x200.jpg";
+import gameNight from "../assets/images/events/game-night.jpg";
+import newComic from "../assets/images/events/new-comic-200x200.jpg";
+import comicConEvent from "../assets/images/events/comic-con-event-554x554.jpg";
+---
+
+<BaseLayout>
+  <main>
+    <section class="py-16 md:py-24 lg:py-28 bg-[#060704] text-white">
+      <div class="site-container">
+        <div class="flex flex-col items-center">
+          <div class="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
+            <div class="w-full max-w-lg">
+              <h1 class="mb-5 font-bold leading-[1.2]">
+                Join Our Exciting Community Events Today!
+              </h1>
+              <p class="md:text-md">
+                Dive into a world of fun and creativity at our community events!
+                Connect with fellow enthusiasts and discover new adventures
+                every month.
+              </p>
+            </div>
+          </div>
+          <div>
+            <Image
+              src={eventsHeroImage}
+              alt="store events"
+              class="w-full object-cover shadow-lg rounded-2xl"
+              width={1168}
+              height={657}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 lg:py-28 bg-[#060704] text-white">
+      <div class="site-container">
+        <div class="mb-12 md:mb-18 lg:mb-20">
+          <div class="max-w-lg">
+            <p class="mb-3 font-semibold md:mb-4">Events</p>
+            <h1 class="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+              Schedule
+            </h1>
+            <p class="md:text-md">
+              Join us for exciting events, including signings, game nights, and
+              release parties!
+            </p>
+          </div>
+        </div>
+        <div
+          dir="ltr"
+          data-orientation="horizontal"
+          class="flex flex-col justify-start"
+        >
+          <div
+            data-state="active"
+            data-orientation="horizontal"
+            role="tabpanel"
+            aria-labelledby="radix-:R2:-trigger-fri-09-feb"
+            id="radix-:R2:-content-fri-09-feb"
+            tabindex="0"
+            class="focus-visible:outline-none data-[state=active]:animate-tabs"
+            style="animation-duration:0s"
+          >
+            <div class="flex flex-col gap-y-6 md:gap-y-8">
+              <div
+                class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary grid grid-cols-1 items-center gap-8 p-6 sm:gap-4 md:grid-cols-[6rem_max-content_1fr_max-content] md:gap-8 md:p-8 rounded-2xl"
+              >
+                <div class="text-md md:text-lg">October 8, 2025 2pm</div>
+                <div class="w-full md:w-36">
+                  <a
+                    href="#"
+                    class="relative block aspect-[3/2] md:aspect-square"
+                  >
+                    <Image
+                      src={comicSigning}
+                      alt="Comic signing event"
+                      class="w-full h-full object-cover shadow-lg rounded-lg"
+                      width={200}
+                      height={200}
+                      loading="lazy"
+                      format="webp"
+                    /></a
+                  >
+                </div>
+                <div
+                  class="grid auto-cols-fr grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_.25fr]"
+                >
+                  <div>
+                    <h5 class="text-xl font-bold md:text-2xl">
+                      Comic Signing Event
+                    </h5>
+                    <div>Kevin Smith</div>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      class="size-6 flex-none"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"
+                      ></path>
+                      <path
+                        d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"
+                      ></path></svg
+                    ><span>Store</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary grid grid-cols-1 items-center gap-8 p-6 sm:gap-4 md:grid-cols-[6rem_max-content_1fr_max-content] md:gap-8 md:p-8 rounded-2xl"
+              >
+                <div class="text-md md:text-lg">October 10, 2025 5pm</div>
+                <div class="w-full md:w-36">
+                  <a
+                    href="#"
+                    class="relative block aspect-[3/2] md:aspect-square"
+                  >
+                    <Image
+                      src={gameNight}
+                      alt="Game night event"
+                      class="w-full h-full object-cover shadow-lg rounded-lg"
+                      width={250}
+                      height={250}
+                      loading="lazy"
+                      format="webp"
+                    /></a
+                  >
+                </div>
+                <div
+                  class="grid auto-cols-fr grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_.25fr]"
+                >
+                  <div>
+                    <h5 class="text-xl font-bold md:text-2xl">
+                      Game Night Fun
+                    </h5>
+                    <div>Emma</div>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      class="size-6 flex-none"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"
+                      ></path>
+                      <path
+                        d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"
+                      ></path></svg
+                    ><span>Lounge</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary grid grid-cols-1 items-center gap-8 p-6 sm:gap-4 md:grid-cols-[6rem_max-content_1fr_max-content] md:gap-8 md:p-8 rounded-2xl"
+              >
+                <div class="text-md md:text-lg">October 31, 2025 12pm</div>
+                <div class="w-full md:w-36">
+                  <a
+                    href="#"
+                    class="relative block aspect-[3/2] md:aspect-square"
+                  >
+                    <Image
+                      src={newComic}
+                      alt="New comic release event"
+                      class="w-full h-full object-cover shadow-lg rounded-lg"
+                      width={200}
+                      height={200}
+                      loading="lazy"
+                      format="webp"
+                    /></a
+                  >
+                </div>
+                <div
+                  class="grid auto-cols-fr grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_.25fr]"
+                >
+                  <div>
+                    <h5 class="text-xl font-bold md:text-2xl">
+                      New Comic Release
+                    </h5>
+                    <div>Mason</div>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      class="size-6 flex-none"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"
+                      ></path>
+                      <path
+                        d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"
+                      ></path></svg
+                    ><span>Store</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-state="inactive"
+            data-orientation="horizontal"
+            role="tabpanel"
+            aria-labelledby="radix-:R2:-trigger-sat-10-feb"
+            hidden=""
+            id="radix-:R2:-content-sat-10-feb"
+            tabindex="0"
+            class="focus-visible:outline-none data-[state=active]:animate-tabs"
+          >
+          </div>
+          <div
+            data-state="inactive"
+            data-orientation="horizontal"
+            role="tabpanel"
+            aria-labelledby="radix-:R2:-trigger-sun-11-feb"
+            hidden=""
+            id="radix-:R2:-content-sun-11-feb"
+            tabindex="0"
+            class="focus-visible:outline-none data-[state=active]:animate-tabs"
+          >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 lg:py-28 bg-[#060704] text-white">
+      <div class="site-container">
+        <div
+          class="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20"
+        >
+          <div>
+            <p class="mb-3 font-semibold md:mb-4">Excitement</p>
+            <h2 class="mb-5 font-bold md:mb-6">
+              Join Us for Our Epic Comic Con Event!
+            </h2>
+            <p class="md:text-md">
+              Get ready for a day filled with action, adventure, and exclusive
+              merchandise! Don’t miss out on special guest appearances and
+              exciting activities for all ages.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
+              <button
+                class="rounded-button inline-flex gap-3 items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border border-border-primary text-text-primary bg-background-primary px-6 py-3"
+                title="RSVP"
+              >
+                RSVP</button
+              ><button
+                class="rounded-button inline-flex items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border-0 text-text-primary gap-2 bg-transparent p-0"
+                title="Learn More"
+              >
+                Learn More<svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="0"
+                  viewBox="0 0 15 15"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div>
+            <Image
+              src={comicConEvent}
+              alt="New comic release event"
+              class="w-full h-full object-cover shadow-lg rounded-lg"
+              width={554}
+              height={554}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

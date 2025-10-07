@@ -1,0 +1,1040 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/homepage/lc-hero-1920x1080.png";
+import heroImageMobile from "../assets/images/homepage/lc-comic-hero-mobile.webp";
+import cardOne from "../assets/images/homepage/lc-card1-700x422.jpg";
+import cardTwo from "../assets/images/homepage/lc-card2-700x422.jpg";
+import cardThree from "../assets/images/homepage/lc-card3-700x422.jpg";
+import spotlightImage from "../assets/images/homepage/action-figures.jpg";
+import meetGreet from "../assets/images/homepage/meet-greet-381x260.jpg";
+import gameNight from "../assets/images/homepage/game-night-401x280.jpg";
+import newComic from "../assets/images/homepage/new-comic-381x260.jpg";
+import testimonialOne from "../assets/images/homepage/alex-testimonial-100x100.jpg";
+import testimonialTwo from "../assets/images/homepage/sarah-testimonial-100x100.jpg";
+import testimonialThree from "../assets/images/homepage/marcus-testimonial-100x100.jpg";
+---
+
+<BaseLayout>
+  <main>
+    <section
+      class="relative min-h-screen flex items-center justify-center md:justify-start md:pb-40"
+    >
+      <!-- Background Image with Picture tag -->
+      <div class="absolute inset-0 z-0">
+        <picture>
+          <!-- Mobile: Smaller image for faster loading -->
+          <source
+            srcset={heroImageMobile.src}
+            media="(max-width: 767px)"
+            type="image/webp"
+          />
+          <!-- Fallback: Desktop image optimized by Astro -->
+          <Image
+            src={heroImage}
+            alt="Legends Collectibles - Your destination for rare comics and collectibles"
+            class="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchpriority="high"
+            format="webp"
+          />
+        </picture>
+      </div>
+
+      <!-- Content -->
+      <div class="w-full text-white relative z-10 text-center px-5">
+        <h1
+          class="text-5xl md:text-[5rem] leading-[110%] mb-5 max-w-4xl mx-auto mt-[227px]"
+        >
+          Discover Legendary Comics & Collectibles
+        </h1>
+        <p class="text-lg mb-6 max-w-2xl mx-auto">
+          Welcome to your premier destination for rare comics, new and vintage
+          collectibles, and pop culture treasures. Explore our curated
+          collection and take home your next legendary piece.
+        </p>
+        <a
+          href="/about"
+          class="bg-white text-black px-6 py-3 rounded-3xl hover:bg-gray-100 transition-colors mb-[227px] inline-block"
+          title="Learn More About Us"
+        >
+          Learn More
+        </a>
+      </div>
+    </section>
+    <section class="bg-[#060704] text-white">
+      <div class="site-container">
+        <div class="text-center">
+          <p class="pt-16 pb-3">Explore</p>
+          <h2 class="pb-5">Unleash Your Inner Collector</h2>
+          <p class="pb-12">
+            Dive into our extensive collection of action figures and rare
+            comics. Join a passionate community of collectors and enthusiasts
+            who share your love for all things pop culture.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
+          <div id="card1" class="text-center">
+            <Image
+              src={cardOne}
+              alt="gwen and miles action figures"
+              class="w-full object-cover rounded-2xl aspect-[313/185] mx-auto"
+              width={680}
+              height={402}
+              loading="lazy"
+              format="webp"
+            />
+            <h3 class="pt-6 pb-5">A Treasure Trove of Action Figures</h3>
+            <p class="pb-12 text-xs">
+              Discover a diverse range of figures from your favorite franchises.
+            </p>
+          </div>
+          <div id="card2" class="text-center">
+            <Image
+              src={cardTwo}
+              alt=""
+              class="w-full object-cover rounded-2xl aspect-[313/185] mx-auto"
+              width={680}
+              height={402}
+              loading="lazy"
+              format="webp"
+            />
+            <h3 class="pt-6 pb-5">Rare Comics for Every Avid Reader</h3>
+            <p class="pb-12 text-xs">
+              Find unique and hard-to-find comics that complete your collection.
+            </p>
+          </div>
+          <div id="card3" class="text-center">
+            <Image
+              src={cardThree}
+              alt="Legends Collectibles - Your destination for rare comics and collectibles"
+              class="w-full object-cover rounded-2xl aspect-[313/185] mx-auto"
+              width={680}
+              height={402}
+              loading="lazy"
+              format="webp"
+            />
+            <h3 class="pt-6 pb-5">Join Our Vibrant Community Events</h3>
+            <p class="pb-16 text-xs">
+              Participate in exciting events and meet fellow enthusiasts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-[#060704] text-white pt-16">
+      <div class="site-container">
+        <div
+          class="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20"
+        >
+          <div>
+            <p class="mb-3 font-semibold md:mb-4">Spotlight</p>
+            <h2 class="mb-5 md:mb-6">
+              Discover Our Exclusive Action Figure Collection
+            </h2>
+            <p class="mb-6 md:mb-8 md:text-md">
+              Discover a wide range of action figures for every age and
+              interest. Whether you’re adding to your Marvel Legends collection
+              for display or picking up a DC character for someone else, you’ll
+              find a variety of new and used figures.
+            </p>
+            <div class="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
+              <div>
+                <p class="mb-3 text-md leading-[1.4] font-bold">New Arrivals</p>
+                <p class="text-xs">
+                  Get your hands on the latest collectibles before they're gone!
+                </p>
+              </div>
+              <div>
+                <p class="mb-3 text-md leading-[1.4] font-bold">Used Figures</p>
+                <p class="text-xs">
+                  Browse our collection of used figures and get a discount!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pb-16">
+            <Image
+              src={spotlightImage}
+              alt="gwen and miles action figures"
+              class="w-full object-cover aspect-square mx-auto"
+              width={534}
+              height={534}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 lg:py-28 bg-[#060704] text-white">
+      <div class="site-container">
+        <div class="mb-12 md:mb-18 lg:mb-20">
+          <div class="mx-auto max-w-lg text-center">
+            <p class="font-semibold">Community</p>
+            <h1 class="mt-3 text-5xl font-bold md:mt-4 md:text-7xl lg:text-8xl">
+              Events
+            </h1>
+            <p class="mt-5 text-base md:mt-6 md:text-md">
+              Join us for exciting community gatherings!
+            </p>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3"
+        >
+          <div
+            class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary flex flex-col items-start rounded-xl"
+          >
+            <a href="#" class="relative block aspect-[3/2] w-full">
+              <Image
+                src={meetGreet}
+                alt="Author Meet & Greet event"
+                class="absolute size-full object-cover"
+                width={381}
+                height={260}
+                loading="lazy"
+                format="webp"
+              />
+              <div
+                class="absolute top-4 right-4 flex min-w-28 flex-col items-center bg-background-primary px-1 py-3 text-xs bg-[#060704] rounded-xl"
+              >
+                <span>Fri</span><span
+                  class="text-2xl font-bold md:text-3xl lg:text-4xl">09</span
+                ><span>Feb 2024</span>
+              </div></a
+            >
+            <div class="flex flex-col items-start p-6">
+              <p
+                class="inline-flex items-center rounded-badge px-2 py-1 text-xs font-semibold focus:outline-none border rounded-3xl bg-background-secondary text-text-primary mb-3 md:mb-4"
+              >
+                Signing
+              </p>
+              <a href="#"
+                ><p class="text-xl font-bold">Author Meet &amp; Greet</p></a
+              >
+              <p class="mb-2 text-xs">Store</p>
+              <p class="text-xs">
+                Meet your favorite comic book author and get your books signed!
+              </p>
+              <button
+                class="rounded-button inline-flex items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border-0 text-text-primary gap-2 bg-transparent p-0 mt-5 md:mt-6"
+                title="View event"
+              >
+                View event<svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="0"
+                  viewBox="0 0 15 15"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary flex flex-col items-start rounded-xl"
+          >
+            <a href="#" class="relative block aspect-[3/2] w-full">
+              <Image
+                src={gameNight}
+                alt="Game Night Extravaganza event"
+                class="absolute size-full object-cover"
+                width={401}
+                height={280}
+                loading="lazy"
+                format="webp"
+              />
+              <div
+                class="absolute top-4 right-4 flex min-w-28 flex-col items-center bg-background-primary px-1 py-3 text-xs bg-[#060704] rounded-xl"
+              >
+                <span>Sat</span><span
+                  class="text-2xl font-bold md:text-3xl lg:text-4xl">10</span
+                ><span>Feb 2024</span>
+              </div></a
+            >
+            <div class="flex flex-col items-start p-6">
+              <p
+                class="inline-flex items-center rounded-badge px-2 py-1 text-xs font-semibold focus:outline-none border rounded-3xl bg-background-secondary text-text-primary mb-3 md:mb-4"
+              >
+                Game
+              </p>
+              <a href="#"
+                ><p class="text-xl font-bold">Game Night Extravaganza</p></a
+              >
+              <p class="mb-2 text-xs">Cafe</p>
+              <p class="text-xs">
+                Join us for a night of fun and gaming with friends!
+              </p>
+              <button
+                class="rounded-button inline-flex items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border-0 text-text-primary gap-2 bg-transparent p-0 mt-5 md:mt-6"
+                title="View event"
+              >
+                View event<svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="0"
+                  viewBox="0 0 15 15"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="overflow-hidden rounded-card border border-border-primary bg-background-primary text-text-primary flex flex-col items-start rounded-xl"
+          >
+            <a href="#" class="relative block aspect-[3/2] w-full">
+              <Image
+                src={newComic}
+                alt="New Comic Release event"
+                class="absolute size-full object-cover"
+                width={381}
+                height={260}
+                loading="lazy"
+                format="webp"
+              />
+              <div
+                class="absolute top-4 right-4 flex min-w-28 flex-col items-center bg-background-primary px-1 py-3 text-xs bg-[#060704] rounded-xl"
+              >
+                <span>Sun</span><span
+                  class="text-2xl font-bold md:text-3xl lg:text-4xl">11</span
+                ><span>Feb 2024</span>
+              </div></a
+            >
+            <div class="flex flex-col items-start p-6">
+              <p
+                class="inline-flex items-center rounded-badge px-2 py-1 text-xs font-semibold focus:outline-none border rounded-3xl bg-background-secondary text-text-primary mb-3 md:mb-4"
+              >
+                Release
+              </p>
+              <a href="#"><p class="text-xl font-bold">New Comic Release</p></a>
+              <p class="mb-2 text-xs">Store</p>
+              <p class="text-xs">
+                Celebrate the launch of our latest comic with exclusive
+                merchandise!
+              </p>
+              <button
+                class="rounded-button inline-flex items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border-0 text-text-primary gap-2 bg-transparent p-0 mt-5 md:mt-6"
+                title="View event"
+              >
+                View event<svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="0"
+                  viewBox="0 0 15 15"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                    fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 flex justify-center md:mt-18 lg:mt-20">
+          <a
+            href="/events"
+            class="rounded-button inline-flex gap-3 items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border border-border-primary text-text-primary bg-background-primary px-6 py-3"
+            title="View all"
+          >
+            View all
+          </a>
+        </div>
+      </div>
+    </section>
+    <section
+      class="overflow-hidden py-16 md:py-24 lg:py-28 bg-[#060704] text-white"
+    >
+      <div class="site-container">
+        <div class="relative">
+          <div
+            class="relative overflow-hidden"
+            role="region"
+            aria-roledescription="carousel"
+          >
+            <div>
+              <div>
+                <div class="flex ml-0 md:mx-3">
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    class="min-w-0 shrink-0 grow-0 basis-full pl-0 md:basis-full md:px-16"
+                  >
+                    <div
+                      class="mx-auto flex w-full max-w-lg flex-col items-center text-center"
+                    >
+                      <div class="mb-6 flex md:mb-8"></div>
+                      <blockquote class="text-xl font-bold md:text-2xl">
+                        &quot;This shop has transformed my collection! The
+                        variety and quality of action figures are
+                        unmatched.&quot;
+                      </blockquote>
+                      <div
+                        class="mt-6 flex flex-col items-center justify-center md:mt-8"
+                      >
+                        <div class="mb-3 md:mb-4">
+                          <Image
+                            src={testimonialOne}
+                            alt="Alex Johnson - Collector and Local Fan"
+                            class="size-16 min-h-16 min-w-16 rounded-full object-cover"
+                            width={100}
+                            height={100}
+                            loading="lazy"
+                            format="webp"
+                          />
+                        </div>
+                        <p class="font-semibold">Alex Johnson</p>
+                        <div class="mb-4 md:mb-0">
+                          <p>Collector, Local Fan</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    class="min-w-0 shrink-0 grow-0 basis-full pl-0 md:basis-full md:px-16"
+                  >
+                    <div
+                      class="mx-auto flex w-full max-w-lg flex-col items-center text-center"
+                    >
+                      <div class="mb-6 flex md:mb-8">
+                        <!-- No logo for second testimonial -->
+                      </div>
+                      <blockquote class="text-xl font-bold md:text-2xl">
+                        &quot;Amazing selection of rare comics! I found issues
+                        I've been hunting for years. The staff really knows
+                        their stuff and helped me complete my Marvel
+                        collection.&quot;
+                      </blockquote>
+                      <div
+                        class="mt-6 flex flex-col items-center justify-center md:mt-8"
+                      >
+                        <div class="mb-3 md:mb-4">
+                          <Image
+                            src={testimonialTwo}
+                            alt="Sarah Chen - Collector and Local Fan"
+                            class="size-16 min-h-16 min-w-16 rounded-full object-cover"
+                            width={100}
+                            height={100}
+                            loading="lazy"
+                            format="webp"
+                          />
+                        </div>
+                        <p class="font-semibold">Sarah Chen</p>
+                        <div class="mb-4 md:mb-0">
+                          <p>Comic Enthusiast</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    class="min-w-0 shrink-0 grow-0 basis-full pl-0 md:basis-full md:px-16"
+                  >
+                    <div
+                      class="mx-auto flex w-full max-w-lg flex-col items-center text-center"
+                    >
+                      <div class="mb-6 flex md:mb-8">
+                        <!-- No logo for third testimonial -->
+                      </div>
+                      <blockquote class="text-xl font-bold md:text-2xl">
+                        &quot;Best gaming community I've found! The events are
+                        fantastic and I've made so many friends here. Plus their
+                        card game selection is incredible.&quot;
+                      </blockquote>
+                      <div
+                        class="mt-6 flex flex-col items-center justify-center md:mt-8"
+                      >
+                        <div class="mb-3 md:mb-4">
+                          <Image
+                            src={testimonialThree}
+                            alt="Marcus Rodriguez - Collector and Local Fan"
+                            class="size-16 min-h-16 min-w-16 rounded-full object-cover"
+                            width={100}
+                            height={100}
+                            loading="lazy"
+                            format="webp"
+                          />
+                        </div>
+                        <p class="font-semibold">Marcus Rodriguez</p>
+                        <div class="mb-4 md:mb-0">
+                          <p>Gaming Enthusiast</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="rounded-button gap-3 items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border border-border-primary text-text-primary absolute rounded-full bg-neutral-white left-0 top-1/2 -translate-y-1/2 hidden md:flex md:size-14 hover:cursor-pointer"
+                disabled=""
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  class="size-6"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"
+                  ></path></svg
+                ><span class="sr-only">Previous slide</span></button
+              ><button
+                class="rounded-button gap-3 items-center justify-center whitespace-nowrap transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none border border-border-primary text-text-primary absolute rounded-full bg-neutral-white right-0 top-1/2 -translate-y-1/2 hidden md:flex md:size-14 hover:cursor-pointer"
+                disabled=""
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  class="size-6"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+                  ></path></svg
+                ><span class="sr-only">Next slide</span>
+              </button>
+              <div
+                class="mt-[30px] flex items-center justify-center md:mt-[46px] md:hidden"
+              >
+                <button
+                  class="relative mx-2 inline-block size-3 md:size-2 rounded-full bg-white transition-all duration-200 active-dot"
+                  aria-label="Go to slide 1"></button>
+                <button
+                  class="relative mx-2 inline-block size-3 md:size-2 rounded-full bg-transparent border-2 border-white transition-all duration-200"
+                  aria-label="Go to slide 2"></button>
+                <button
+                  class="relative mx-2 inline-block size-3 md:size-2 rounded-full bg-transparent border-2 border-white transition-all duration-200"
+                  aria-label="Go to slide 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
+
+      <div class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+          <div class="mx-auto max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="lg:max-w-sm">
+              <h2
+                class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+              >
+                FAQs
+              </h2>
+              <p>
+                Find answers to your questions about our shop, shipping
+                policies, and upcoming events.
+              </p>
+            </div>
+            <div class="min-w-0">
+              <div class="divide-y divide-gray-900/10">
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-0"
+                      aria-label="Toggle answer for: Do you buy back comics and collectibles?"
+                      class="flex w-full items-start justify-between text-left text-gray-900"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >Do you buy back comics and collectibles?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-0" class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        Yes! We purchase comics, action figures, and
+                        collectibles. We evaluate items based on condition,
+                        rarity, and current market value. Bring your collection
+                        in for a free appraisal, and we'll make you a fair cash
+                        offer.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-1"
+                      aria-label="Toggle answer for: What's your return policy?"
+                      class="flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >What's your return policy?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-1" hidden class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        We offer a 30-day return policy on new items in original
+                        condition. For rare or vintage comics, all sales are
+                        final due to their collectible nature. Damaged items can
+                        be returned within 7 days for exchange.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-2"
+                      aria-label="Toggle answer for: Do you host gaming events and tournaments?"
+                      class="flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >Do you host gaming events and tournaments?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-2" hidden class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        Absolutely! We host weekly game nights, monthly
+                        tournaments for TCGs like Magic: The Gathering and
+                        Pokémon, and special release events. Check our events
+                        calendar or follow us on social media for the latest
+                        schedule.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-3"
+                      aria-label="Toggle answer for: Can you special order items not in stock?"
+                      class="flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >Can you special order items not in stock?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-3" hidden class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        Yes! We can special order most comics, action figures,
+                        and collectibles. Special orders typically take 1-3
+                        weeks to arrive. We require a 50% deposit for special
+                        orders and will notify you when your item arrives.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-4"
+                      class="flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer"
+                      aria-label="Toggle answer for: Do you offer comic grading services?"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >Do you offer comic grading services?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-4" hidden class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        We partner with CGC and CBCS for professional comic
+                        grading services. We can submit your comics for grading
+                        and handle the entire process. Turnaround times vary by
+                        service level, typically 2-8 weeks depending on tier
+                        selected.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+                <div class="py-6 first:pt-0 last:pb-0">
+                  <div>
+                    <button
+                      type="button"
+                      data-command="--toggle"
+                      data-commandfor="faq-5"
+                      aria-label="Toggle answer for: What are your store hours and location?"
+                      class="flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer"
+                    >
+                      <span class="text-base/7 font-semibold"
+                        >What are your store hours and location?</span
+                      >
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M12 6v12m6-6H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          class="size-6 not-in-aria-expanded:hidden"
+                        >
+                          <path
+                            d="M18 12H6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <el-disclosure id="faq-5" hidden class="contents">
+                    <div class="mt-2 pr-12">
+                      <p class="text-base/7 text-gray-600">
+                        We're open Monday-Saturday 10am-8pm and Sunday 12pm-6pm.
+                        We're located at 123 Hero Avenue in downtown. Free
+                        parking is available behind the store, and we're easily
+                        accessible by public transit.
+                      </p>
+                    </div>
+                  </el-disclosure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // FAQ Accordion functionality - Vanilla JavaScript
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get all FAQ buttons
+        const faqButtons = document.querySelectorAll(
+          '[data-command="--toggle"]'
+        );
+
+        faqButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-commandfor");
+            const disclosure = document.getElementById(targetId);
+            const icon = button.querySelector("svg");
+
+            if (disclosure) {
+              // Toggle visibility
+              const isHidden = disclosure.hasAttribute("hidden");
+
+              if (isHidden) {
+                // Show the disclosure
+                disclosure.removeAttribute("hidden");
+                // Rotate icon to indicate open state
+                if (icon) {
+                  icon.style.transform = "rotate(45deg)";
+                }
+              } else {
+                // Hide the disclosure
+                disclosure.setAttribute("hidden", "");
+                // Reset icon rotation
+                if (icon) {
+                  icon.style.transform = "rotate(0deg)";
+                }
+              }
+            }
+          });
+        });
+      });
+    </script>
+    <script>
+      // Slider functionality
+      let startX = 0;
+      let currentSlide = 0;
+      const totalSlides = 3;
+
+      const slidesContainer = document.querySelector(".flex.ml-0");
+      const dots = document.querySelectorAll('[aria-label^="Go to slide"]');
+      const prevBtn = document
+        .querySelector("button .size-6")
+        ?.closest("button");
+      const nextBtn = document
+        .querySelectorAll("button .size-6")[1]
+        ?.closest("button");
+
+      // Arrow button functionality (desktop)
+      prevBtn?.addEventListener("click", () => {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateSlider();
+        }
+      });
+
+      nextBtn?.addEventListener("click", () => {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+          updateSlider();
+        }
+      });
+
+      // Touch events for swipe (mobile)
+      slidesContainer?.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      slidesContainer?.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > 50) {
+          // Minimum swipe distance
+          if (diff > 0 && currentSlide < totalSlides - 1) {
+            // Swipe left - next slide
+            currentSlide++;
+          } else if (diff < 0 && currentSlide > 0) {
+            // Swipe right - previous slide
+            currentSlide--;
+          }
+          updateSlider();
+        }
+      });
+
+      // Dot click functionality (mobile)
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentSlide = index;
+          updateSlider();
+        });
+      });
+
+      function updateSlider() {
+        // Update slide position
+        if (slidesContainer) {
+          slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+          slidesContainer.style.transition = "transform 0.3s ease-in-out";
+        }
+
+        // Update dots (mobile)
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            // Filled dot for current slide
+            dot.className =
+              "relative mx-2 inline-block size-3 md:size-2 rounded-full bg-white transition-all duration-200";
+          } else {
+            // Empty dot for inactive slides
+            dot.className =
+              "relative mx-2 inline-block size-3 md:size-2 rounded-full bg-transparent border-2 border-white transition-all duration-200";
+          }
+        });
+
+        // Update button states (desktop)
+        if (prevBtn) {
+          prevBtn.disabled = currentSlide === 0;
+          prevBtn.style.opacity = currentSlide === 0 ? "0.5" : "1";
+        }
+        if (nextBtn) {
+          nextBtn.disabled = currentSlide === totalSlides - 1;
+          nextBtn.style.opacity =
+            currentSlide === totalSlides - 1 ? "0.5" : "1";
+        }
+      }
+
+      // Initialize slider
+      updateSlider();
+    </script>
+  </main>
+</BaseLayout>

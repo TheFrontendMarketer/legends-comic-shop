@@ -1,0 +1,181 @@
+---
+import logo from "../assets/images/shared/lc-logo-154x160.png";
+import { Image } from "astro:assets";
+---
+
+<header>
+  <!-- navbar goes here -->
+  <nav class="bg-[#090909] text-white">
+    <div class="site-container">
+      <div class="flex justify-between items-center">
+        <!-- Logo on the left -->
+        <div class="py-3 px-1">
+          <a href="/">
+            <Image
+              src={logo}
+              alt="Legends Collectibles Logo"
+              width={154}
+              height={160}
+              class="h-14 md:h-18 w-auto"
+              loading="eager"
+              decoding="async"
+              sizes="(max-width: 768px) 54px, 69px"
+            />
+          </a>
+        </div>
+
+        <!-- Navigation items and buttons on the right -->
+        <div class="flex items-center space-x-4">
+          <!-- primary nav -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              class="py-5 px-3 text-white hover:text-orange-400 transition-colors duration-300"
+              href="/">Home</a
+            >
+            <a
+              class="py-5 px-3 text-white hover:text-orange-400 transition-colors duration-300"
+              href="/products">Products</a
+            >
+            <a
+              class="py-5 px-3 text-white hover:text-orange-400 transition-colors duration-300"
+              href="/about">About</a
+            >
+            <a
+              class="py-5 px-3 text-white hover:text-orange-400 transition-colors duration-300"
+              href="/events">Events</a
+            >
+          </div>
+          <!-- secondary nav -->
+          <div class="hidden md:flex items-center space-x-1">
+            <a
+              href="/contact"
+              class="py-1.5 px-3 bg-white hover:bg-[#FF7043] text-black hover:text-white rounded-2xl transition duration-300"
+              >Contact</a
+            >
+          </div>
+          <!-- mobile button -->
+          <div class="md:hidden flex items-center">
+            <button
+              class="mobile-menu-button cursor-pointer"
+              aria-label="Toggle mobile menu"
+            >
+              <img
+                class="w-6 h-6 hamburger-icon"
+                src="/icon-hamburger-light.svg"
+                alt=""
+              />
+              <img
+                class="w-6 h-6 close-icon hidden"
+                src="/icon-close-light.svg"
+                alt="Close"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div
+      class="mobile-menu hidden md:hidden px-3 transform transition-all duration-300 ease-in-out opacity-0 -translate-y-4 text-center"
+    >
+      <a
+        href="/"
+        class="block py-2 px-3 text-sm hover:bg-gray-200 transition-colors duration-200"
+        >Home</a
+      >
+      <a
+        href="/products"
+        class="block py-2 px-3 text-sm hover:bg-gray-200 transition-colors duration-200"
+        >Products</a
+      >
+      <a
+        href="/about"
+        class="block py-2 px-3 text-sm hover:bg-gray-200 transition-colors duration-200"
+        >About</a
+      >
+      <a
+        href="/events"
+        class="block py-2 px-3 text-sm hover:bg-gray-200 transition-colors duration-200"
+        >Events</a
+      >
+      <a
+        href="/contact"
+        class="block py-2 px-3 text-sm hover:bg-gray-200 transition-colors duration-200"
+        >Contact</a
+      >
+    </div>
+  </nav>
+</header>
+<script>
+  // Type-safe element selectors with proper error handling
+  const getElement = <T extends Element>(selector: string): T | null => {
+    try {
+      return document.querySelector<T>(selector);
+    } catch (error) {
+      console.warn(`Failed to find element: ${selector}`, error);
+      return null;
+    }
+  };
+
+  // Force reflow safely for smooth transitions
+  const forceReflow = (element: Element | null): void => {
+    if (element instanceof HTMLElement) {
+      // Reading offsetHeight forces a reflow - this is intentional
+      void element.offsetHeight;
+    }
+  };
+
+  // Mobile menu toggle functionality
+  const initializeMobileMenu = (): void => {
+    const btn = getElement<HTMLButtonElement>(".mobile-menu-button");
+    const menu = getElement<HTMLElement>(".mobile-menu");
+    const hamburgerIcon = getElement<HTMLImageElement>(".hamburger-icon");
+    const closeIcon = getElement<HTMLImageElement>(".close-icon");
+
+    // Ensure all required elements exist
+    if (!btn || !menu || !hamburgerIcon || !closeIcon) {
+      console.warn("Mobile menu: Missing required elements");
+      return;
+    }
+
+    btn.addEventListener("click", () => {
+      try {
+        const isHidden = menu.classList.contains("hidden");
+
+        if (isHidden) {
+          // Show menu with smooth transition
+          menu.classList.remove("hidden");
+
+          // Force reflow to ensure transition works properly
+          forceReflow(menu);
+
+          menu.classList.remove("opacity-0", "-translate-y-4");
+          menu.classList.add("opacity-100", "translate-y-0");
+        } else {
+          // Hide menu with smooth transition
+          menu.classList.add("opacity-0", "-translate-y-4");
+          menu.classList.remove("opacity-100", "translate-y-0");
+
+          // Hide after transition completes
+          setTimeout(() => {
+            menu.classList.add("hidden");
+          }, 300);
+        }
+
+        // Toggle menu icons
+        hamburgerIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      } catch (error) {
+        console.error("Error toggling mobile menu:", error);
+      }
+    });
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeMobileMenu);
+  } else {
+    initializeMobileMenu();
+  }
+</script>

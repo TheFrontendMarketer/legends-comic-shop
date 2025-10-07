@@ -1,0 +1,248 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import firstImage from "../assets/images/products/first-image-554x554.jpg";
+import comicImage from "../assets/images/products/comic-section-554x554.jpg";
+import heroImage from "../assets/images/products/product-hero-1920x1080.jpg";
+import heroImageMobile from "../assets/images/products/product-hero-mobile-800x1200.webp";
+import comicImageTwo from "../assets/images/products/comic-section-two-554x554.jpg";
+import galleryOne from "../assets/images/products/product-gallery1-383x383.jpg";
+import galleryTwo from "../assets/images/products/product-gallery2-383x383.jpg";
+import galleryThree from "../assets/images/products/product-gallery3-383x383.jpg";
+import galleryFour from "../assets/images/products/product-gallery4-383x383.jpg";
+import galleryFive from "../assets/images/products/product-gallery5-383x383.jpg";
+import gallerySix from "../assets/images/products/product-gallery6-383x383.jpg";
+---
+
+<BaseLayout>
+  <main>
+    <section
+      class="relative min-h-screen flex items-center justify-center md:justify-start md:pb-40"
+    >
+      <!-- Background Image with Picture tag -->
+      <div class="absolute inset-0 z-0">
+        <picture>
+          <!-- Mobile: Smaller image for faster loading -->
+          <source
+            srcset={heroImageMobile.src}
+            media="(max-width: 767px)"
+            type="image/webp"
+          />
+          <!-- Fallback: Desktop image optimized by Astro -->
+          <Image
+            src={heroImage}
+            alt="Legends Collectibles - Your destination for rare comics and collectibles"
+            class="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchpriority="high"
+            format="webp"
+          />
+        </picture>
+      </div>
+
+      <!-- Content -->
+      <div class="w-full text-white relative z-10 text-center px-5">
+        <!-- Comic book text box with layered panels -->
+        <div class="relative inline-block max-w-4xl mx-auto">
+          <!-- Red shadow panel (behind) -->
+          <div
+            class="absolute top-2 left-2 w-full h-full bg-red-600 border-4 border-black rounded-lg"
+          >
+          </div>
+
+          <!-- Main cream panel (front) -->
+          <div
+            class="relative bg-white border-4 border-black rounded-lg p-8 shadow-lg"
+          >
+            <h1
+              class="font-bangers text-4xl md:text-6xl leading-[110%] mb-5 text-black font-bold"
+            >
+              Epic Collectibles Await
+            </h1>
+            <p
+              class="font-bangers text-lg mb-6 max-w-2xl mx-auto text-gray-800"
+            >
+              Explore our exclusive range of action figures and comics, crafted
+              for true collectors and enthusiasts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 md:py-24 lg:py-28">
+      <div class="site-container">
+        <div
+          class="flex flex-col gap-12 md:flex-row md:items-center md:gap-x-12 lg:gap-x-20"
+        >
+          <div class="flex-1">
+            <h1 class="rb-5 mb-5 leading-[1.2] font-bold md:mb-6">
+              Find Action Figures and Comics
+            </h1>
+            <p class="mb-6 md:mb-8 md:text-md">
+              Dive into a world of collectibles where every figure tells a
+              story. Our curated selection features both iconic and rare pieces
+              that will captivate any enthusiast.
+              <br /><br />
+              From beloved Marvel superheroes to hidden DC gems, there’s something
+              here for every fan. We also pride ourselves on offering a variety of
+              other popular action figures like Dragon Ball Z, Pokemon, Demon Slayer,
+              and more. Build your collection and celebrate the stories that inspire
+              imagination and adventure.
+            </p>
+          </div>
+          <div class="flex-1">
+            <Image
+              src={firstImage}
+              alt="Action figures and comics collection"
+              class="w-full rounded-image object-cover"
+              width={554}
+              height={554}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 md:py-24 lg:py-28">
+      <div class="site-container">
+        <div
+          class="flex flex-col gap-12 md:flex-row-reverse md:items-center md:gap-x-12 lg:gap-x-20"
+        >
+          <div class="flex-1">
+            <p class="mb-3 font-semibold md:mb-4">Explore</p>
+            <h2 class="rb-5 mb-5 font-bold md:mb-6">
+              Discover Our Diverse Comic Book Collection
+            </h2>
+            <p class="mb-6 md:mb-8 md:text-md">
+              Dive into a world of imagination with our extensive comic book
+              selection. From timeless classics to the latest releases,
+              there&#x27;s something for every fan.
+              <br /><br />
+              Uncover stories that span every genre, from heroic adventures to gripping
+              mysteries. Each issue is carefully chosen to spark curiosity and inspire
+              collectors of all ages. Whether you’re starting your first stack or
+              adding to a long-time collection, you’ll find comics that ignite your
+              passion for storytelling.
+            </p>
+          </div>
+          <div class="flex-1 relative">
+            <!-- Container for overlapping images -->
+            <div class="relative w-full max-w-md mx-auto">
+              <!-- Background image (larger, positioned behind) -->
+              <div class="relative">
+                <Image
+                  src={comicImage}
+                  alt="Comic books collection showcase"
+                  class="w-full object-cover shadow-lg"
+                  width={554}
+                  height={554}
+                  loading="lazy"
+                  format="webp"
+                />
+              </div>
+
+              <!-- Overlapping image (smaller, positioned on top) - Desktop only -->
+              <div class="absolute -bottom-6 -right-6 w-2/3 hidden md:block">
+                <Image
+                  src={comicImageTwo}
+                  alt="Action figures and collectibles display"
+                  class="w-full object-cover"
+                  width={554}
+                  height={554}
+                  loading="lazy"
+                  format="webp"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 md:py-24 lg:py-28">
+      <div class="site-container">
+        <div class="mb-12 text-center md:mb-18 lg:mb-20">
+          <h2 class="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+            Action Showcase
+          </h2>
+          <p class="md:text-md">
+            Explore our stunning collection of action figures and comics.
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-2 items-start justify-center gap-6 md:gap-8 lg:grid-cols-3"
+        >
+          <div class="flex-1">
+            <Image
+              src={galleryOne}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <div class="flex-1">
+            <Image
+              src={galleryTwo}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <div class="flex-1">
+            <Image
+              src={galleryThree}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+
+          <div class="flex-1">
+            <Image
+              src={galleryFour}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <div class="flex-1">
+            <Image
+              src={galleryFive}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <div class="flex-1">
+            <Image
+              src={gallerySix}
+              alt="Action figures and comics collection"
+              class="w-full rounded-2xl object-cover"
+              width={383}
+              height={383}
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
