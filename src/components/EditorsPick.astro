@@ -156,15 +156,68 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Fetch comics from our secure API route
+  // Fetch comics from Netlify function with fallback
   async function fetchComics() {
     try {
-      const response = await fetch("/api/marvel");
+      console.log("Fetching from Netlify function...");
+      const response = await fetch("/.netlify/functions/marvel");
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log("Comics data received:", data);
       return data || [];
     } catch (error) {
-      console.error("Error fetching Marvel comics:", error);
-      return [];
+      console.error("Netlify function failed, trying fallback:", error);
+
+      // Fallback: Use client-side API call with public key only
+      try {
+        const MARVEL_PUBLIC_KEY = "c1c278bf26386ea3ed4ba42319211448";
+        const url = `https://gateway.marvel.com/v1/public/comics?limit=50&orderBy=-onsaleDate&apikey=${MARVEL_PUBLIC_KEY}`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+        const allComics = data.data?.results || [];
+
+        const targetSeries = [
+          "Spider-Man",
+          "X-Men",
+          "Avengers",
+          "X-Force",
+          "Deadpool",
+          "Wolverine",
+          "Iron Man",
+          "Captain America",
+          "Thor",
+          "Hulk",
+        ];
+
+        const validComics = allComics.filter((comic) => {
+          if (
+            !comic.thumbnail ||
+            !comic.thumbnail.path ||
+            comic.thumbnail.path.includes("image_not_available") ||
+            !comic.title
+          ) {
+            return false;
+          }
+
+          const title = comic.title.toLowerCase();
+          return targetSeries.some((series) =>
+            title.includes(series.toLowerCase())
+          );
+        });
+
+        const shuffled = validComics.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 5);
+      } catch (fallbackError) {
+        console.error("Fallback also failed:", fallbackError);
+        return [];
+      }
     }
   }
 

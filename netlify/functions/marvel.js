@@ -1,14 +1,14 @@
-import crypto from "crypto";
+const crypto = require("crypto");
 
-export async function GET() {
-  const MARVEL_PUBLIC_KEY = import.meta.env.MARVEL_PUBLIC_KEY;
-  const MARVEL_PRIVATE_KEY = import.meta.env.MARVEL_PRIVATE_KEY;
+exports.handler = async (event, context) => {
+  const MARVEL_PUBLIC_KEY = process.env.MARVEL_PUBLIC_KEY;
+  const MARVEL_PRIVATE_KEY = process.env.MARVEL_PRIVATE_KEY;
 
   if (!MARVEL_PUBLIC_KEY || !MARVEL_PRIVATE_KEY) {
-    return new Response(JSON.stringify({ error: "API keys not configured" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "API keys not configured" }),
+    };
   }
 
   const ts = Date.now().toString();
@@ -66,13 +66,17 @@ export async function GET() {
     const shuffled = validComics.sort(() => 0.5 - Math.random());
     const randomComics = shuffled.slice(0, 5);
 
-    return new Response(JSON.stringify(randomComics), {
+    return {
+      statusCode: 200,
       headers: { "Content-Type": "application/json" },
-    });
+      body: JSON.stringify(randomComics),
+    };
   } catch (error) {
     console.error("Error fetching Marvel comics:", error);
-    return new Response(JSON.stringify([]), {
+    return {
+      statusCode: 500,
       headers: { "Content-Type": "application/json" },
-    });
+      body: JSON.stringify([]),
+    };
   }
-}
+};
