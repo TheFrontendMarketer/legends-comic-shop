@@ -17,6 +17,9 @@ importers:
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
+      legends-comic-shop:
+        specifier: 'link:'
+        version: 'link:'
       sharp:
         specifier: ^0.34.3
         version: 0.34.3
