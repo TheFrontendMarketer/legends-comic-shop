@@ -2,12 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import firstImage from "../assets/images/products/first-image-554x554.jpg";
-import comicImage from "../assets/images/products/comic-section-554x554.jpg";
+import actionFigureDisplay from "../assets/images/products/action-figures-on-display-554x554.jpg";
 import heroImage from "../assets/images/products/product-hero-1920x1080.jpg";
 import heroImageMobile from "../assets/images/products/product-hero-mobile-800x1200.webp";
+import comicImageOne from "../assets/images/products/comic-section-554x554.jpg";
 import comicImageTwo from "../assets/images/products/comic-section-two-554x554.jpg";
-import galleryOne from "../assets/images/products/product-gallery1-383x383.jpg";
-import galleryTwo from "../assets/images/products/product-gallery2-383x383.jpg";
+import galleryOne from "../assets/images/products/action-figures-on-display-554x554.jpg";
+import galleryTwo from "../assets/images/products/product-gallery2-554x554.jpg";
 import galleryThree from "../assets/images/products/product-gallery3-383x383.jpg";
 import galleryFour from "../assets/images/products/product-gallery4-383x383.jpg";
 import galleryFive from "../assets/images/products/product-gallery5-383x383.jpg";
@@ -33,7 +34,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <!-- Fallback: Desktop image optimized by Astro -->
           <Image
             src={heroImage}
-            alt="Legends Collectibles - Your destination for rare comics and collectibles"
+            alt="comic books on floor"
             class="w-full h-full object-cover"
             width={1920}
             height={1080}
@@ -100,7 +101,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={firstImage}
-              alt="Action figures and comics collection"
+              alt="Action figures of hulk, captain america, and iron man"
               class="w-full rounded-image object-cover"
               width={554}
               height={554}
@@ -139,8 +140,8 @@ import EditorsPick from "../components/EditorsPick.astro";
               <!-- Background image (larger, positioned behind) -->
               <div class="relative">
                 <Image
-                  src={comicImage}
-                  alt="Comic books collection showcase"
+                  src={comicImageOne}
+                  alt="Comics inside of a comic book store"
                   class="w-full object-cover shadow-lg"
                   width={554}
                   height={554}
@@ -153,7 +154,7 @@ import EditorsPick from "../components/EditorsPick.astro";
               <div class="absolute -bottom-6 -right-6 w-2/3 hidden md:block">
                 <Image
                   src={comicImageTwo}
-                  alt="Action figures and collectibles display"
+                  alt="comic book shelf"
                   class="w-full object-cover"
                   width={554}
                   height={554}
@@ -182,7 +183,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={galleryOne}
-              alt="Action figures and comics collection"
+              alt="Action figures on display"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}
@@ -193,7 +194,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={galleryTwo}
-              alt="Action figures and comics collection"
+              alt="comic books on shelf"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}
@@ -204,7 +205,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={galleryThree}
-              alt="Action figures and comics collection"
+              alt="stuffed toys in a box"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}
@@ -216,7 +217,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={galleryFour}
-              alt="Action figures and comics collection"
+              alt="action figures being played with"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}
@@ -227,7 +228,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={galleryFive}
-              alt="Action figures and comics collection"
+              alt="spider man action figure"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}
@@ -238,7 +239,7 @@ import EditorsPick from "../components/EditorsPick.astro";
           <div class="flex-1">
             <Image
               src={gallerySix}
-              alt="Action figures and comics collection"
+              alt="iron man comic book"
               class="w-full rounded-2xl object-cover"
               width={383}
               height={383}

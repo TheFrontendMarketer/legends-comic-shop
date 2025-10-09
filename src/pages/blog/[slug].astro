@@ -1,0 +1,202 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPost, getPosts, urlFor } from "../../lib/sanity.js";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug.current },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout>
+  <main>
+    <!-- Article Header -->
+    <article class="py-16 md:py-24">
+      <div class="site-container max-w-4xl">
+        <!-- Back Button -->
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-red-600 hover:text-red-700 mb-8"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Blog
+        </a>
+
+        <!-- Article Meta -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-4">
+            {
+              post.categories &&
+                post.categories.map((category) => (
+                  <span class="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">
+                    {category.title}
+                  </span>
+                ))
+            }
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            {post.title}
+          </h1>
+
+          <div class="flex items-center gap-4 mb-8">
+            {
+              post.author?.image && (
+                <img
+                  src={urlFor(post.author.image).width(60).height(60).url()}
+                  alt={post.author.name}
+                  class="w-15 h-15 rounded-full object-cover"
+                />
+              )
+            }
+            <div>
+              <p class="font-semibold">{post.author?.name}</p>
+              <p class="text-gray-600">
+                {
+                  new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Image -->
+        {
+          post.mainImage && (
+            <div class="mb-12">
+              <img
+                src={urlFor(post.mainImage).width(800).height(400).url()}
+                alt={post.title}
+                class="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          )
+        }
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          {
+            post.body &&
+              post.body.map((block) => {
+                if (block._type === "block") {
+                  // Handle different block styles
+                  const Tag =
+                    block.style === "h1"
+                      ? "h1"
+                      : block.style === "h2"
+                        ? "h2"
+                        : block.style === "h3"
+                          ? "h3"
+                          : block.style === "h4"
+                            ? "h4"
+                            : block.style === "blockquote"
+                              ? "blockquote"
+                              : "p";
+
+                  return (
+                    <Tag
+                      class={
+                        block.style === "blockquote"
+                          ? "border-l-4 border-red-500 pl-4 italic my-6 text-gray-600"
+                          : "mb-6"
+                      }
+                    >
+                      {block.children.map((child) => {
+                        if (child.marks && child.marks.length > 0) {
+                          let content = child.text;
+                          child.marks.forEach((mark) => {
+                            if (mark === "strong") {
+                              content = `<strong>${content}</strong>`;
+                            } else if (mark === "em") {
+                              content = `<em>${content}</em>`;
+                            } else if (mark === "code") {
+                              content = `<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">${content}</code>`;
+                            }
+                          });
+                          return <Fragment set:html={content} />;
+                        }
+                        return child.text;
+                      })}
+                    </Tag>
+                  );
+                } else if (block._type === "image") {
+                  return (
+                    <div class="my-8">
+                      <img
+                        src={urlFor(block.asset).width(800).height(400).url()}
+                        alt={block.alt || ""}
+                        class="w-full h-auto rounded-lg shadow-lg"
+                      />
+                      {block.caption && (
+                        <p class="text-sm text-gray-600 mt-2 text-center italic">
+                          {block.caption}
+                        </p>
+                      )}
+                    </div>
+                  );
+                }
+                return null;
+              })
+          }
+        </div>
+
+        <!-- Author Bio -->
+        {
+          post.author?.bio && (
+            <div class="mt-16 p-6 bg-gray-50 rounded-lg">
+              <h3 class="text-xl font-bold mb-4">About the Author</h3>
+              <div class="flex items-start gap-4">
+                {post.author.image && (
+                  <img
+                    src={urlFor(post.author.image).width(80).height(80).url()}
+                    alt={post.author.name}
+                    class="w-20 h-20 rounded-full object-cover"
+                  />
+                )}
+                <div>
+                  <h4 class="font-semibold mb-2">{post.author.name}</h4>
+                  <div class="text-gray-600">
+                    {post.author.bio &&
+                      post.author.bio.map((block) => {
+                        if (block._type === "block") {
+                          return (
+                            <p class="mb-2">
+                              {block.children
+                                .map((child) => child.text)
+                                .join("")}
+                            </p>
+                          );
+                        }
+                        return null;
+                      })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </article>
+  </main>
+</BaseLayout>
